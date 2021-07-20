@@ -1,4 +1,9 @@
+## This is the executable file with (somewhat poor) UI Support
+
 # Installed default dependencies
+from functools import partial
+import tkinter as tk
+from tkinter import IntVar, StringVar, Text, ttk                 # Used for creating GUI application
 from configparser import ConfigParser   # Handles configuration file settings
 from time import sleep                  # Async-await
 
@@ -8,6 +13,55 @@ import pygetwindow as gw                # Simplified version for win32gui librar
 
 # Helpers
 from helpers import woodcutting_bot_helper
+
+def setupApp():
+    # Load and Read Existing Settings
+    parser = ConfigParser()
+    parser.read('dev.ini')
+
+    selectionOne = parser.get('settings','bot_type',fallback='none')
+    selectionTwo = parser.getint('settings','woodcutting_find_tree_attempts',fallback=0)
+    selectionThree = parser.getint('settings','chop_and_drop_time_seconds',fallback=15)
+
+    # Create RuneLiteBot Application Window
+    window = tk.Tk()
+    window.geometry('480x320')
+
+    # Create Labels
+    ttk.Label(window, text="OSRS RuneLite Bot",
+    font = ("Times New Roman", 12)).grid(column=0,row=0)
+    ttk.Label(window, text="Select the Bot Type: ",
+        font = ("Times New Roman", 12)).grid(column=0,row=1)
+    ttk.Label(window, text="Woodcutting: Find Tree Attempts",
+        font = ("Times New Roman", 12)).grid(column=0,row=3)
+    ttk.Label(window, text="Woodcutting: Chop and Drop Time",
+        font = ("Times New Roman", 12)).grid(column=0,row=4)
+
+    v1 = IntVar()
+    e1 = ttk.Entry(window, textvariable=v1)
+    v1.set(selectionTwo)
+    e1.grid(column=1,row=3)
+
+    v2 = IntVar()
+    e2 = ttk.Entry(window, textvariable=v2)
+    v2.set(selectionThree)
+    e2.grid(column=1,row=4)
+
+    # Combobox Creation
+    n = tk.StringVar()
+    bot_type_selection = ttk.Combobox(window, width=27, textvariable=n)
+    # Add combobox dropdown list
+    bot_type_selection['values'] = ('woodcutting','surprise','none')
+    bot_type_selection.grid(column=1,row=1)
+    bot_type_selection.current(0)
+    
+    # Basic START Button (Needs better support)
+    startBtn = ttk.Button(window, text="START", command=partial(onInit,v1.get(),v2.get())).grid(column=0,row=5)
+    stopBtn = ttk.Button(window, text="STOP", command=exit).grid(column=0,row=6)
+
+    # Keep window going
+    window.mainloop()
+
 
 def setup():
     parser = ConfigParser()
@@ -61,5 +115,6 @@ def onInit(attempts,timeSeconds):
 def onInitTest():
     print('You got trolled lmao')
 
-# Execution
-setup()
+# Application running in multiple threads doesn't quite work yet
+setupApp()
+# setup()

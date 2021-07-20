@@ -44,9 +44,9 @@ def findRandomTreeAlgorithm():
     # Sample list of color tuples with form of RGB 
     tree_trunk_colors = [(74,50,23),(91,61,28),(94,64,29),(93,63,29)]
 
-    inventory_size = {'x': 320, 'y': 422} # Inventory size by default should remain same
+    inventory_size = {'x': 320, 'y': 422} # Inventory size + sidebar calculation not accurate
 
-    for i in range(0,1000,1):
+    for i in range(0,3000,1):
         random_x = random.randrange(0, img.width - inventory_size['x'] - 1) # Ignore detection of inventory logs
         random_y = random.randrange(0, img.height - inventory_size['y'] - 1) # This ultimately reduces search space
         #print(str(random_x) + ',' + str(random_y))
@@ -72,8 +72,8 @@ def dropLogs():
 
     OSRSWindow = gw.getWindowsWithTitle('RuneLite')[0]
 
-    inventory_x = OSRSWindow.bottomright[0] - 285
-    inventory_y = OSRSWindow.bottomright[1] - 350
+    inventory_x = OSRSWindow.bottomright[0] - 228 # Test for scaling
+    inventory_y = OSRSWindow.bottomright[1] - 280 # Test for scaling
 
     logs_color = [(93,63,29)] # Can be refactored
 
@@ -82,11 +82,11 @@ def dropLogs():
 
         pyautogui.moveTo(inventory_x,inventory_y)
         pyautogui.rightClick()
-        pyautogui.moveTo(inventory_x,inventory_y + 48)
+        pyautogui.moveTo(inventory_x,inventory_y + 40)
         pyautogui.leftClick()
 
         if (times < 3):
-            inventory_x = inventory_x + 52 # Movement a bit high
+            inventory_x = inventory_x + 40 # Test for scaling
             sleep(0.5)
 
         times = times + 1
@@ -94,5 +94,5 @@ def dropLogs():
 # This function can technically be classified in another class for future development
 def rotateCamera():
     pyautogui.keyDown("right")
-    sleep(1)
+    sleep(0.500)
     pyautogui.keyUp("right")

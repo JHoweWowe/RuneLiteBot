@@ -1,58 +1,55 @@
-# OSBSBotPy
-This is adapted for RuneLite client. 
-Client runs script while OSRS window is left alone.
+# RuneLiteBot
+Disclaimer: I do not condone cheating. I simply wanted to improve my Python skills, 
+and apply my software development knowledge to a game I used to love growing up as a kid.
 
-This is done for educational purposes. I do not condone cheating in-game.
-I simply wanted to improve my Python skills, and apply it to a game I used to love growing up as a kid.
+
+## Description
+Programmed in Python and used in many desktop applications, I decided to create a bot script for the RuneLite client in Old School Runescape without the user having to control the mouse and keyboard to level up the user's woodcutting skill. More functionality to be added soon.
+
 
 ## Installation Requirements
-This program is only supported for Windows OS.
+Only supported for Windows OS. First Google and download Python 3.9.5.
 
-On your favorite terminal (Command Prompt):
+Once installed, go to your favorite terminal (Command Prompt):
 Python 3.9.5 - Python3 by default should have `pip` already installed.
 `pip install pyautogui`
 `pip install pygetwindow`
 `pip install Pillow`
 
+The following libraries install PyAutoGui, PyGetWindow, and Pillow (Image Capture) respectively.
+
+
 ## How it Works
-This is currently a woodcutting bot - this is perfect for someone whose level is between 1-30 for cutting regular and oak trees.
+This is currently a woodcutting bot - perfect for someone whose level is between 1-30 for cutting regular and oak trees.
 
-1. Login to RuneLite
+1. Login to RuneLite (Make sure your game window is not fullscreen)
 2. Your Game client layout should be: `Resizable - Classic Layout`
-3. Your inventory should be open. Weapons should be at bottom of inventory.
+3. Your top 4 slots in your inventory should be free. Weapons should be at bottom of inventory.
 
-Your RuneLite client can be either in fullscreen or windowed.
+Make sure your brightness level is set at 2nd knotch.
+The following screenshot will display the optimal settings.
+
+Please refer to the following screenshots below for Settings and Inventory.
+
+![Display Settings](/images/DisplaySettings.png) ![Inventory](/images/Inventory.png)
 
 Note: Don't expand the RuneLite sidebar. 
-My algorithm doesn't yet use Computer Vision technology, I don't have time to implement such as of now.
 
-Start your favorite console and type: `py main.py`
+Once Python and its required libraries are installed, start your favorite console and type: `py main.py`
+
+Changing the Settings for running the script is easy. Refer to the `dev.ini` file.
+
 
 ## Tested Settings
 - Windows 10, Python 3.9.5, 
+- Screen Resolution: 1920 x 1080
+Only supported with 100% scaling for Windows.
 
-## Dependencies Required
-- Python3
-- PyAutoGui and PyGetWindow
-- Pillow for Image Capture
 
-## Implementation of Future Libraries
-- OpenCV-Python
-- Win32Gui
+## Known Bugs:
+- [ ] When screen size is classic and too small, program doesn't execute likely due to failure of image capture attempting to find a random tree algorithm
 
-## TODO Features for Version 1:
-- [x] Improve findRandomTree() algorithm where bot may accidently mistake a log for a tree
-    - Implemented confirmTree() algorithm
-    - Pixel color detection for finding tree outside of inventory - this approach speeds up algorithm slightly 
-- [x] Create Python script for additional support
-- [x] Create time variable if user isn't able to detect tree within max number of attempts
-- [ ] Make dropLogs() algorithm more advanced
-- [ ] Refactor code and design!
-- [ ] OSRS main client support?
 
-## Rough RoadMap for OSRSBot
-Phase 1: Color botting
-Phase 2: Implementing more advanced algorithm
-    - [ ] Avoid obstacles
-
-## Q&A
+## Resources
+https://realpython.com/python-gui-tkinter/
+https://docs.python.org/3/library/configparser.html

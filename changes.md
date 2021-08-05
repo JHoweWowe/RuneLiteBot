@@ -15,12 +15,14 @@
     - Implement both START button 
     - Doesn't fully function due to lack of asynchronous programming
 - [x] Add supporting images and videos for better understanding of documentation
+- [x] Refactored code for Main execution script for OOP principles
 
 ## TODO Additional Features:
-- [ ] Refactor code and design!
 - [ ] Make dropLogs() algorithm more advanced (if needed)
+- [ ] Include Youtube demo video
 - [ ] Create another findTree() algorithm where color detection starts from center of window??
 - [ ] OSRS main client support?
+- [ ] Support Window Scaling
 
 ## TODO Features for Version 2:
 - [ ] Implement OpenCV

@@ -1,3 +1,8 @@
-# Byte-compiled files
+# Byte-compiled / optimized files
 __pycache__/
 *.pyc
+
+# Test files
+testMain.py
+testMain2.py
+images/test_image.png

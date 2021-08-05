@@ -16,18 +16,22 @@
     - Doesn't fully function due to lack of asynchronous programming
 - [x] Add supporting images and videos for better understanding of documentation
 - [x] Refactored code for Main execution script for OOP principles
+- [x] Implement basic configuration support for number of logs to be dropped per cycle
 
 ## TODO Additional Features:
-- [ ] Make dropLogs() algorithm more advanced (if needed)
 - [ ] Include Youtube demo video
 - [ ] Create another findTree() algorithm where color detection starts from center of window??
 - [ ] OSRS main client support?
 - [ ] Support Window Scaling
 
 ## TODO Features for Version 2:
-- [ ] Implement OpenCV
-- [ ] TensorFlow machine learning algorithm
+- [ ] Woodcutting Bot
+    - [ ] Implement OpenCV
+    - [ ] Utilize TensorFlow machine learning algorithm
+    - [ ] Change woodcutting bot cycle
+- [ ] Other bots - mining or firemaking
+- [ ] Write basic system and unit tests using PyTest
 - [ ] Improve Usability
     - [ ] Enhance UI
     - [ ] Create an executable Windows exe file?
-    - [ ] Integrate GUI together with concurrency support
+    - [ ] Integrate GUI together with concurrency support using asynchronous programming

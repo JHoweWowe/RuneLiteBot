@@ -40,6 +40,11 @@ Once Python and its required libraries are installed, start your favorite consol
 Changing the Settings for running the script is easy. Refer to the `dev.ini` file.
 
 
+## Development Settings
+Please refer to the following file `dev.ini`
+drop_number_of_logs_per_cycle value should between 1 - 4 to follow algorithm cycle
+
+
 ## Tested Settings
 - Windows 10, Python 3.9.5, 
 - Screen Resolution: 1920 x 1080

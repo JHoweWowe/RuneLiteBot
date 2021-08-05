@@ -67,29 +67,25 @@ def findRandomTreeAlgorithm():
 
     return False
 
-# Additional feature to add additional waiting time
-def dropLogs():
+def dropLogs(numberOfLogs):
 
     OSRSWindow = gw.getWindowsWithTitle('RuneLite')[0]
 
     inventory_x = OSRSWindow.bottomright[0] - 228 # Test for scaling
     inventory_y = OSRSWindow.bottomright[1] - 280 # Test for scaling
 
-    logs_color = [(93,63,29)] # Can be refactored
-
-    times = 0
-    while (times < 4):
+    for times_x in range(1, numberOfLogs+1):
 
         pyautogui.moveTo(inventory_x,inventory_y)
         pyautogui.rightClick()
         pyautogui.moveTo(inventory_x,inventory_y + 40)
         pyautogui.leftClick()
 
-        if (times < 3):
+        if (times_x < 4):
             inventory_x = inventory_x + 40 # Test for scaling
             sleep(0.5)
 
-        times = times + 1
+        times_x = times_x + 1
 
 # This function can technically be classified in another class for future development
 def rotateCamera():
